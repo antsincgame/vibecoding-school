@@ -1,0 +1,14 @@
+# School — vibecoding.by
+
+Сайт школы вайб-кодинга. Лендинг + курсы + блог + личный кабинет студента.
+
+## Стек: React 18 + TypeScript + Vite + Tailwind CSS
+## Shared: Header и Auth из `@vibecoding/shared` (папка `shared/` — git submodule)
+## Footer: свой, в `src/components/Footer.tsx`
+## Суфикс стилей shared: `.vc-*` — не трогай
+
+## БД (Supabase: zxywgueplrosvdwgpmvb)
+Таблицы без префикса: profiles, courses, lessons, blog_posts, faqs, student_works и др.
+
+## Работай ТОЛЬКО в этом репозитории. Если нужно менять Header или Auth — переходи в vibecoding-shared.
+## Деплой: npm run build → dist/ → vibecoding.by
