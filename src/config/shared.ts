@@ -3,6 +3,7 @@ import type { FooterConfig } from '../components/Footer';
 
 export const schoolHeaderConfig: HeaderConfig = {
   logoText: 'VIBECODING',
+  logoImage: '/logo.png',
   logoTo: '/',
   navLinks: [
     { to: '/', label: 'Главная' },
