@@ -1,4 +1,4 @@
 [submodule "shared"]
 	path = shared
-	url = https://github.com/antsincgame/vibecoding-shared.git
+	url = https://github.com/igor1000rr/vibecoding-shared.git
 	branch = main
