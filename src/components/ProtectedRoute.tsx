@@ -23,7 +23,7 @@ export default function ProtectedRoute({ children, requireAdmin = false }: Prote
     );
   }
 
-  if (user && !profile) {
+  if (user && !profile && !loading) {
     return (
       <div style={{
         minHeight: '100vh',
