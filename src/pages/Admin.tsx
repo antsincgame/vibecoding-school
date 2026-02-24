@@ -43,27 +43,7 @@ export default function Admin() {
   const [managingLessonsCourse, setManagingLessonsCourse] = useState<Course | null>(null);
   const [showCreateUser, setShowCreateUser] = useState(false);
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        navigate('/login');
-        return;
-      }
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('role')
-        .eq('id', session.user.id)
-        .maybeSingle();
-      if (!profile || profile.role !== 'admin') {
-        await supabase.auth.signOut();
-        navigate('/login');
-        return;
-      }
-      loadData();
-    };
-    checkAuth();
-  }, []);
+  useEffect(() => { loadData(); }, []);
 
   useEffect(() => {
     loadData();

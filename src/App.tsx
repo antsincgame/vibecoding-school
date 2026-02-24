@@ -80,10 +80,12 @@ function App() {
                 </div>
               } />
               <Route path="/admin" element={
-                <div className="app-layout">
-                  <main className="app-content"><Admin /></main>
-                  <SchoolFooter />
-                </div>
+                <ProtectedRoute requireAdmin>
+                  <div className="app-layout">
+                    <main className="app-content"><Admin /></main>
+                    <SchoolFooter />
+                  </div>
+                </ProtectedRoute>
               } />
               <Route path="/student/login" element={
                 <div className="app-layout">
