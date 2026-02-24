@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:functions": "supabase functions deploy --project-ref zxywgueplrosvdwgpmvb"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",

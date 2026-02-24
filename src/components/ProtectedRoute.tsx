@@ -7,10 +7,10 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ children, requireAdmin = false }: ProtectedRouteProps) {
-  const { user, profile, loading } = useAuth();
+  const { user, profile, loading, signOut } = useAuth();
   const location = useLocation();
 
-  if (loading || (user && !profile)) {
+  if (loading) {
     return (
       <div style={{
         minHeight: '100vh',
@@ -19,6 +19,34 @@ export default function ProtectedRoute({ children, requireAdmin = false }: Prote
         justifyContent: 'center'
       }}>
         <div style={{ fontSize: '24px', color: 'var(--neon-cyan)' }}>Загрузка...</div>
+      </div>
+    );
+  }
+
+  if (user && !profile) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '24px',
+        padding: '20px'
+      }}>
+        <div style={{ fontSize: '20px', color: 'var(--neon-pink)', textAlign: 'center' }}>
+          Не удалось загрузить профиль
+        </div>
+        <p style={{ opacity: 0.8, textAlign: 'center', maxWidth: '400px' }}>
+          Выйдите и войдите снова. Если проблема сохраняется, обратитесь в поддержку.
+        </p>
+        <button
+          onClick={() => signOut().then(() => window.location.assign('/student/login'))}
+          className="cyber-button"
+          style={{ padding: '12px 24px' }}
+        >
+          Выйти и войти снова
+        </button>
       </div>
     );
   }
