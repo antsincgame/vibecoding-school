@@ -16,6 +16,7 @@ export const schoolHeaderConfig: HeaderConfig = {
   ],
   telegramLink: 'https://t.me/vibecodingby',
   youtubeLink: 'https://www.youtube.com/@vibecodingby',
+  instagramLink: 'https://www.instagram.com/dzmitry_arlou',
   loginPath: '/student/login',
   profilePath: '/student/dashboard',
   extraLinks: [
@@ -54,6 +55,7 @@ export const schoolFooterConfig: FooterConfig = {
     telegramUrl: 'https://t.me/vibecodingby',
     telegramLabel: 'Telegram',
     youtubeUrl: 'https://www.youtube.com/@vibecodingby',
+    instagramUrl: 'https://www.instagram.com/dzmitry_arlou',
   },
   copyrightText: '© 2025 Vibecoding. Все права защищены.',
   copyrightLinks: [

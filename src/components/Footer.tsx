@@ -24,6 +24,7 @@ export interface FooterContact {
   telegramUrl?: string;
   telegramLabel?: string;
   youtubeUrl?: string;
+  instagramUrl?: string;
 }
 
 export interface FooterConfig {
@@ -175,7 +176,7 @@ export default function Footer({
                     <a href={`mailto:${contacts.email}`} className="vc-footer-link">{contacts.email}</a>
                   </div>
                 )}
-                {(contacts.telegramUrl || contacts.youtubeUrl) && (
+                {(contacts.telegramUrl || contacts.youtubeUrl || contacts.instagramUrl) && (
                 <div className="vc-footer-contact-row" style={{ marginTop: '5px', gap: '16px', flexWrap: 'wrap' }}>
                   {contacts.telegramUrl && (
                     <a href={contacts.telegramUrl} target="_blank" rel="noopener noreferrer" className="vc-footer-link vc-footer-tg">
@@ -191,6 +192,14 @@ export default function Footer({
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                       </svg>
                       <span>YouTube</span>
+                    </a>
+                  )}
+                  {contacts.instagramUrl && (
+                    <a href={contacts.instagramUrl} target="_blank" rel="noopener noreferrer" className="vc-footer-link vc-footer-tg" title="Instagram">
+                      <svg width={isMobile ? 20 : 24} height={isMobile ? 20 : 24} viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.549.07 3.052.148 4.771 1.691 4.919 4.919.058.965.07 1.345.07 4.549s-.012 3.584-.07 4.549c-.149 3.025-1.664 4.771-4.919 4.919-.965.058-1.345.07-4.549.07s-3.584-.012-4.549-.07c-3.026-.149-4.771-1.664-4.919-4.919-.058-.965-.07-1.345-.07-4.549s.012-3.584.07-4.549c.149-3.026 1.664-4.771 4.919-4.919.965-.058 1.345-.07 4.549-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.072 1.689-.072 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.072-1.689.072-4.948s-.015-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8z" />
+                      </svg>
+                      <span>Instagram</span>
                     </a>
                   )}
                 </div>
