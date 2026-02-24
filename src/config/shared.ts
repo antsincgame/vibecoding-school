@@ -15,6 +15,7 @@ export const schoolHeaderConfig: HeaderConfig = {
     { to: '/history', label: 'История' },
   ],
   telegramLink: 'https://t.me/vibecodingby',
+  youtubeLink: 'https://www.youtube.com/@vibecodingby',
   loginPath: '/student/login',
   profilePath: '/student/dashboard',
   extraLinks: [
@@ -52,6 +53,7 @@ export const schoolFooterConfig: FooterConfig = {
     email: 'info@vibecoding.by',
     telegramUrl: 'https://t.me/vibecodingby',
     telegramLabel: 'Telegram',
+    youtubeUrl: 'https://www.youtube.com/@vibecodingby',
   },
   copyrightText: '© 2025 Vibecoding. Все права защищены.',
   copyrightLinks: [
