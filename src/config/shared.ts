@@ -57,11 +57,11 @@ export const schoolFooterConfig: FooterConfig = {
     youtubeUrl: 'https://www.youtube.com/@vibecodingby',
     instagramUrl: 'https://www.instagram.com/dzmitry_arlou',
   },
-  copyrightText: '© 2025 Vibecoding. Все права защищены.',
+  copyrightText: '© 2026 Vibecoding. Все права защищены.',
   copyrightLinks: [
     { label: 'Политика конфиденциальности', to: '/privacy' },
     { label: 'Публичная оферта', to: '/offer' },
   ],
-  legalText: 'Деятельность ведет Орлов Дмитрий Дмитриевич, УНП: НА8252796',
+  legalText: 'Орлов Дмитрий Дмитриевич, самозанятый, плательщик налога на профессиональный доход',
   loginPath: '/login',
 };

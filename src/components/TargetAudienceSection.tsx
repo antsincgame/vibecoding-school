@@ -8,7 +8,7 @@ const audienceData = [
   {
     emoji: '🎓',
     title: 'Студентам',
-    description: 'Начните зарабатывать на создании сайтов уже во время учебы. Выход на фриланс с первых месяцев.',
+    description: 'Освойте создание сайтов уже во время учёбы. Получите практические навыки для выхода на фриланс.',
     image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
@@ -38,7 +38,7 @@ const audienceData = [
   {
     emoji: '🚀',
     title: 'Школьникам от 16 лет',
-    description: 'Первые заработки на создании сайтов. Начните карьеру в IT раньше сверстников.',
+    description: 'Освойте создание сайтов и получите востребованные навыки. Начните путь в IT раньше сверстников.',
     image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
