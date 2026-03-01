@@ -37,7 +37,7 @@ const audienceData = [
   },
   {
     emoji: '🚀',
-    title: 'Школьникам от 16 лет (с согласия родителей)',
+    title: 'Школьникам от 14 лет (с согласия родителей)',
     description: 'Освойте создание сайтов и получите востребованные навыки. Начните путь в IT раньше сверстников.',
     image: 'https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=600'
   },

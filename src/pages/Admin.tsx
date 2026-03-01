@@ -807,7 +807,7 @@ export default function Admin() {
                   )}
                   <div>
                     <div style={{ fontSize: '12px', opacity: 0.6 }}>Возрастная группа</div>
-                    <div>{reg.age_group === 'child' ? 'Подросток (16-18 лет)' : 'Взрослый (18+)'}</div>
+                    <div>{reg.age_group === 'child' ? 'Подросток (14-17 лет)' : 'Взрослый (18+)'}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: '12px', opacity: 0.6 }}>Телефон</div>
