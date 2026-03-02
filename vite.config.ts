@@ -26,7 +26,7 @@ function copyPublicFilesPlugin() {
 
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  publicDir: command === 'serve' ? 'public' : false,
+  publicDir: 'public',
   resolve: {
     alias: [
       { find: '@vibecoding/shared/styles', replacement: resolve(__dirname, 'shared/src/styles/shared.css') },
