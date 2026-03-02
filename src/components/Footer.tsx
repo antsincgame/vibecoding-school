@@ -37,6 +37,7 @@ export interface FooterConfig {
   copyrightLinks?: FooterLink[];
   legalText?: string;
   loginPath?: string;
+  portals?: { label: string; url: string; description?: string }[];
 }
 
 interface BlogPost {
@@ -57,6 +58,7 @@ export default function Footer({
   copyrightLinks,
   legalText,
   loginPath = '/login',
+  portals,
 }: FooterConfig) {
   const [isMobile, setIsMobile] = useState(false);
   const [articles, setArticles] = useState<BlogPost[]>([]);
@@ -99,6 +101,30 @@ export default function Footer({
           <div className="vc-footer-brand">
             <h3 className="vc-footer-brand-name">{name}</h3>
             <p className="vc-footer-brand-desc">{desc}</p>
+
+            {/* Portal links */}
+            {portals && portals.length > 0 && (
+              <div style={{ marginTop: '20px' }}>
+                <h4 className="vc-footer-section-title" style={{ color: 'var(--neon-cyan, #00fff9)', fontSize: '13px', marginBottom: '10px' }}>
+                  Наши порталы
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {portals.map((portal) => (
+                    <a
+                      key={portal.url}
+                      href={portal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="vc-footer-link"
+                      style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+                    >
+                      <span style={{ color: 'var(--neon-cyan)', fontSize: '14px' }}>🌐</span>
+                      <span>{portal.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Blog articles (school) */}

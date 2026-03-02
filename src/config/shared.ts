@@ -64,4 +64,8 @@ export const schoolFooterConfig: FooterConfig = {
   ],
   legalText: 'Орлов Дмитрий Дмитриевич, самозанятый, плательщик налога на профессиональный доход',
   loginPath: '/login',
+  portals: [
+    { label: 'vibecoding.by — Онлайн школа', url: 'https://vibecoding.by' },
+    { label: 'grodno.vibecoding.by — Гродно', url: 'https://grodno.vibecoding.by' },
+  ],
 };
