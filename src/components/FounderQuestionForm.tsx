@@ -57,6 +57,22 @@ export default function FounderQuestionForm({ onSuccess }: FounderQuestionFormPr
       return;
     }
 
+    // Уведомление админу через Amina Bot (fire-and-forget)
+    const aminaUrl = import.meta.env.VITE_AMINA_API_URL;
+    if (aminaUrl) {
+      fetch(`${aminaUrl}/api/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          comment: `Вопрос основателю: ${formData.question.trim()}`,
+          source: 'vibecoding.by/founder',
+        }),
+      }).catch(() => {});
+    }
+
     setSuccess(true);
     setFormData({ name: '', email: '', phone: '', question: '' });
     setLoading(false);

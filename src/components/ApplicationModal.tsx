@@ -131,6 +131,24 @@ export default function ApplicationModal({ isOpen, onClose, preselectedCourse }:
         return;
       }
 
+      // Уведомление админу через Amina Bot (fire-and-forget)
+      const aminaUrl = import.meta.env.VITE_AMINA_API_URL;
+      if (aminaUrl) {
+        const selectedCourseTitle = courses.find(c => c.id === formData.course)?.title;
+        fetch(`${aminaUrl}/api/leads`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            phone: formData.phone.trim(),
+            email: formData.email.trim(),
+            tariff: selectedCourseTitle || '',
+            comment: formData.message.trim(),
+            source: 'vibecoding.by',
+          }),
+        }).catch(() => {});
+      }
+
       const siteUrl = window.location.origin;
       const response = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-verification-email`,

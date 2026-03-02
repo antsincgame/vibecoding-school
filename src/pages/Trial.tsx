@@ -83,6 +83,23 @@ export default function Trial() {
       return;
     }
 
+    // Уведомление админу через Amina Bot (fire-and-forget)
+    const aminaUrl = import.meta.env.VITE_AMINA_API_URL;
+    if (aminaUrl) {
+      fetch(`${aminaUrl}/api/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.parent_name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          tariff: 'Пробное занятие',
+          comment: formData.message?.trim() || '',
+          source: 'vibecoding.by/trial',
+        }),
+      }).catch(() => {});
+    }
+
     setLoading(false);
     setShowModal(true);
   };
