@@ -214,11 +214,11 @@ export default function InboxManager() {
       setSending(true);
 
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`,
+        `${window.location.origin}/functions/v1/send-email`,
         {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            // Auth handled by server
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({

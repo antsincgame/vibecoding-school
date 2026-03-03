@@ -225,7 +225,7 @@ export default function EmailSettingsManager() {
       }
 
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-test-email`,
+        `${window.location.origin}/functions/v1/send-test-email`,
         {
           method: 'POST',
           headers: {
@@ -626,7 +626,7 @@ export default function EmailSettingsManager() {
             <ol style={{ fontSize: '13px', opacity: 0.8, paddingLeft: '20px', lineHeight: '1.8' }}>
               <li>Перейдите в <a href="https://resend.com/webhooks" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--neon-cyan)' }}>resend.com/webhooks</a></li>
               <li>Нажмите "Add Webhook"</li>
-              <li>Endpoint URL: <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px' }}>{import.meta.env.VITE_SUPABASE_URL}/functions/v1/resend-webhook</code></li>
+              <li>Endpoint URL: <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px' }}>https://vibecoding.by/functions/v1/resend-webhook</code></li>
               <li>Выберите события: email.sent, email.delivered, email.opened, email.clicked, email.bounced</li>
             </ol>
           </div>

@@ -151,12 +151,12 @@ export default function ApplicationModal({ isOpen, onClose, preselectedCourse }:
 
       const siteUrl = window.location.origin;
       const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-verification-email`,
+        `${window.location.origin}/functions/v1/send-verification-email`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            // Auth handled by server
           },
           body: JSON.stringify({
             email: formData.email,

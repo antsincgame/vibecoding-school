@@ -15,20 +15,10 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const origin = window.location.origin;
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-
-      const edgeFunctionUrl = `${supabaseUrl}/functions/v1/auth-exchange`;
-      const redirectUrl = `${edgeFunctionUrl}?origin=${encodeURIComponent(origin)}`;
-
       const { error: authError } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: redirectUrl,
-          queryParams: {
-            access_type: 'offline',
-            prompt: 'select_account'
-          }
+          redirectTo: window.location.origin + '/auth/callback',
         }
       });
 

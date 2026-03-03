@@ -42,27 +42,27 @@ export default function About() {
   }, []);
 
   const generateQuotes = async () => {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    
+    
 
     try {
       const [responseDmitry, responseIgor] = await Promise.all([
-        fetch(`${supabaseUrl}/functions/v1/generate-quote`, {
+        fetch(`${window.location.origin}/functions/v1/generate-quote`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${supabaseAnonKey}`,
+            // Auth handled by server
           },
           body: JSON.stringify({
             prompt: 'Создай короткую вдохновляющую цитату (2-3 предложения) о Vibecoding - современном подходе к обучению программированию, где сочетается практический опыт, AI-инструменты и понятная подача материала. Цитата должна быть от лица преподавателя и мотивировать учеников. Только текст цитаты, без кавычек и атрибуции.',
             teacher: 'dmitry'
           })
         }),
-        fetch(`${supabaseUrl}/functions/v1/generate-quote`, {
+        fetch(`${window.location.origin}/functions/v1/generate-quote`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${supabaseAnonKey}`,
+            // Auth handled by server
           },
           body: JSON.stringify({
             prompt: 'Создай короткую вдохновляющую цитату (2-3 предложения) от лица опытного senior-разработчика и архитектора систем о важности чистой архитектуры, менторинга и минималистичных решений в программировании. Цитата должна мотивировать учеников изучать backend-разработку и проектирование систем. Только текст цитаты, без кавычек и атрибуции.',
