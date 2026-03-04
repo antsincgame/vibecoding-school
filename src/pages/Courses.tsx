@@ -7,9 +7,9 @@ import HeroButton from '../components/HeroButton';
 import GeometricBackground from '../components/GeometricBackground';
 
 const SEO = {
-  title: 'Курсы вайбкодинга 2026 | Бесплатный курс и Cursor AI - цены и программа',
-  description: 'Курсы вайбкодинга в школе Vibecoding: бесплатный курс для начинающих, Cursor AI для профессионалов. Создавай сайты с ИИ, получи проекты в портфолио. Онлайн обучение вайбкодингу с нуля.',
-  keywords: 'курсы вайбкодинга, вайбкодинг обучение, Cursor AI курс, бесплатный курс вайбкодинга, обучение вайбкодингу онлайн, создание сайтов с ИИ курсы'
+  title: 'Курсы ИИ программирования 2026 — Cursor AI, вайбкодинг с нуля | Vibecoding',
+  description: 'Курсы ИИ программирования в школе Vibecoding: бесплатный курс вайбкодинга, Cursor AI для профессионалов. Лучшая школа программирования с Cursor — создавай сайты с искусственным интеллектом, получи проекты в портфолио. Онлайн обучение для России и СНГ.',
+  keywords: 'курсы ии программирования, лучшая школа программирования cursor, курсы вайбкодинга, вайбкодинг обучение, Cursor AI курс, бесплатный курс вайбкодинга, обучение вайбкодингу онлайн, создание сайтов с ИИ курсы, школа ии программирования, программирование с нейросетью курсы'
 };
 
 export default function Courses() {
@@ -79,8 +79,8 @@ export default function Courses() {
           fontSize: 'clamp(40px, 6vw, 60px)',
           textAlign: 'center',
           marginBottom: '30px'
-        }} className="glitch" data-text="НАШИ КУРСЫ">
-          <span className="neon-text">НАШИ КУРСЫ</span>
+        }} className="glitch" data-text="КУРСЫ ИИ ПРОГРАММИРОВАНИЯ">
+          <span className="neon-text">КУРСЫ ИИ ПРОГРАММИРОВАНИЯ</span>
         </h1>
         
         <p style={{
@@ -91,7 +91,7 @@ export default function Courses() {
           maxWidth: '800px',
           margin: '0 auto 60px'
         }}>
-          Выбери направление для <strong>создания веб-приложений</strong>: <strong>Cursor AI</strong> для профессиональной разработки или <strong>AI-инструменты</strong> для быстрого старта!
+          Школа ИИ программирования Vibecoding: выбери направление — <strong>Cursor AI</strong> для профессиональной разработки или <strong>Bolt.new</strong> для быстрого старта. Создавай сайты и приложения с искусственным интеллектом!
         </p>
 
         {loading ? (

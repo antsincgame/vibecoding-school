@@ -7,9 +7,9 @@ import HeroButton from '../components/HeroButton';
 import type { TrialRegistration } from '../types';
 
 const SEO = {
-  title: 'Пробный урок вайбкодинга бесплатно | Записаться - Vibecoding',
-  description: 'Бесплатный пробный урок вайбкодинга! Попробуй Cursor AI, создай первый проект за 1.5 часа. Вайбкодинг для начинающих от 14 лет - онлайн занятие без обязательств. Запишись и начни создавать сайты с ИИ!',
-  keywords: 'пробный урок вайбкодинга, вайбкодинг бесплатно попробовать, Cursor AI пробное занятие, бесплатный курс вайбкодинга, записаться на вайбкодинг'
+  title: 'Бесплатный пробный урок ИИ программирования — Cursor AI | Vibecoding',
+  description: 'Бесплатный пробный урок в школе ИИ программирования! Попробуй Cursor AI, создай первый проект за 1.5 часа. Вайбкодинг для начинающих от 14 лет — онлайн занятие без обязательств. Лучшая школа программирования с Cursor AI — запишись!',
+  keywords: 'пробный урок ии программирования, бесплатный урок cursor ai, вайбкодинг бесплатно попробовать, школа ии программирования пробный урок, записаться на вайбкодинг, пробное занятие программирование с ии'
 };
 
 export default function Trial() {
@@ -137,8 +137,8 @@ export default function Trial() {
           fontSize: 'clamp(36px, 6vw, 56px)',
           textAlign: 'center',
           marginBottom: '20px'
-        }} className="glitch" data-text="ПРОБНЫЙ УРОК">
-          <span className="neon-text">ПРОБНЫЙ УРОК</span>
+        }} className="glitch" data-text="БЕСПЛАТНЫЙ ПРОБНЫЙ УРОК">
+          <span className="neon-text">БЕСПЛАТНЫЙ ПРОБНЫЙ УРОК</span>
         </h1>
         
         <p style={{
@@ -147,7 +147,7 @@ export default function Trial() {
           opacity: 0.8,
           marginBottom: '60px'
         }}>
-          Запишись на бесплатное онлайн-занятие по <strong>вайб-кодингу</strong> и начни <strong>создание веб-приложений</strong> с <strong>Cursor AI</strong> и <strong>AI-инструменты</strong>!
+          Запишись на бесплатное онлайн-занятие в школе ИИ программирования! Попробуй <strong>Cursor AI</strong>, создай первый проект с <strong>искусственным интеллектом</strong> за 1.5 часа
         </p>
 
         <div className="cyber-card" style={{ padding: '40px' }}>

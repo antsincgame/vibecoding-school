@@ -7,11 +7,11 @@ export default function StudentWorks() {
   const [apps, setApps] = useState<StudentWork[]>([]);
 
   useEffect(() => {
-    document.title = 'Работы учеников вайбкодинга | Проекты Cursor AI';
+    document.title = 'Работы учеников школы ИИ программирования — проекты на Cursor AI | Vibecoding';
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', 'Портфолио учеников вайбкодинга: реальные сайты и приложения, созданные на курсах Vibecoding с Cursor AI. Смотри, что создают ученики школы вайбкодинга!');
+    if (metaDesc) metaDesc.setAttribute('content', 'Портфолио учеников школы ИИ программирования Vibecoding: реальные сайты и приложения, созданные с Cursor AI. Лучшая школа программирования с Cursor — смотри результаты учеников!');
     const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) metaKeywords.setAttribute('content', 'работы учеников вайбкодинга, портфолио вайбкодинг, проекты Cursor AI, примеры работ вайбкодинг, результаты обучения вайбкодингу');
+    if (metaKeywords) metaKeywords.setAttribute('content', 'работы учеников школы ии программирования, портфолио cursor ai, проекты вайбкодинг, примеры работ ии программирование, лучшая школа программирования cursor результаты');
     loadWorks();
   }, []);
 
@@ -151,7 +151,7 @@ export default function StudentWorks() {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text'
         }}>
-          Работы учеников
+          Работы учеников школы ИИ программирования
         </h1>
         <p style={{
           textAlign: 'center',
@@ -162,8 +162,8 @@ export default function StudentWorks() {
           margin: '0 auto 50px',
           lineHeight: '1.7'
         }}>
-          Здесь собраны проекты, созданные учениками <strong>онлайн школы вайб-кодинга</strong>.
-          Каждая работа - реальный результат <strong>обучения Cursor AI</strong> и <strong>Bolt.ai</strong>!
+          Реальные проекты учеников <strong>школы ИИ программирования Vibecoding</strong>.
+          Каждая работа — результат обучения <strong>Cursor AI</strong> и <strong>Bolt.new</strong>!
         </p>
 
         <div style={{

@@ -16,9 +16,9 @@ interface ModuleData {
 
 const setSEO = (course: Course) => {
   const shortDesc = course.description.substring(0, 80).replace(/\n/g, ' ').trim();
-  const defaultTitle = `${course.title} | Курс вайбкодинга для ${course.age_group}`;
-  const defaultDescription = `Курс вайбкодинга "${course.title}": ${shortDesc}... Длительность ${course.duration}. Обучение вайбкодингу онлайн с практикой. Записаться!`;
-  const defaultKeywords = `${course.title} курс вайбкодинга, обучение вайбкодингу, Cursor AI курс, бесплатный курс вайбкодинга, вайбкодинг онлайн`;
+  const defaultTitle = `${course.title} | Школа ИИ программирования Vibecoding`;
+  const defaultDescription = `${course.title} — курс ИИ программирования в школе Vibecoding: ${shortDesc}... Длительность ${course.duration}. Лучшая школа программирования с Cursor AI. Онлайн обучение для России и СНГ.`;
+  const defaultKeywords = `${course.title}, курс ии программирования, школа ии программирования, лучшая школа программирования cursor, обучение вайбкодингу, Cursor AI курс`;
 
   document.title = course.meta_title || defaultTitle;
 
@@ -55,7 +55,7 @@ const setSEO = (course: Course) => {
     "description": course.meta_description || defaultDescription,
     "provider": {
       "@type": "Organization",
-      "name": "Vibecoding",
+      "name": "Vibecoding — школа ИИ программирования",
       "sameAs": "https://vibecoding.by",
       "url": "https://vibecoding.by"
     },

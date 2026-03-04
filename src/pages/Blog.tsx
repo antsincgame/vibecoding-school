@@ -10,7 +10,7 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Блог вайбкодинга | Статьи о Cursor AI и AI-разработке - Vibecoding';
+    document.title = 'Блог школы ИИ программирования | Cursor AI туториалы, вайбкодинг гайды 2026';
 
     const updateMeta = (name: string, content: string, property?: boolean) => {
       const attr = property ? 'property' : 'name';
@@ -23,10 +23,10 @@ export default function Blog() {
       meta.setAttribute('content', content);
     };
 
-    updateMeta('description', 'Блог о вайбкодинге: туториалы Cursor AI, гайды по созданию сайтов с ИИ. Бесплатные статьи о вайбкодинге для начинающих. Учись создавать приложения с нейросетями - новые материалы каждую неделю!');
-    updateMeta('keywords', 'блог вайбкодинг, статьи о вайбкодинге, Cursor AI туториалы, AI-разработка гайды, вайбкодинг для начинающих, создание сайтов с ИИ статьи');
-    updateMeta('og:title', 'Блог вайбкодинга | Статьи Cursor AI и AI-разработка - Vibecoding', true);
-    updateMeta('og:description', 'Бесплатные статьи о вайбкодинге: туториалы Cursor AI, гайды AI-разработки. Создавай сайты с ИИ!', true);
+    updateMeta('description', 'Блог школы ИИ программирования Vibecoding: туториалы Cursor AI, гайды по вайбкодингу, создание сайтов с искусственным интеллектом. Бесплатные статьи для начинающих — от установки Cursor до запуска продакшен-проектов. Новые материалы каждую неделю!');
+    updateMeta('keywords', 'блог ии программирования, школа ии программирования блог, Cursor AI туториалы, вайбкодинг гайды, AI-разработка статьи, создание сайтов с ИИ, программирование с нейросетью, лучшая школа программирования cursor блог');
+    updateMeta('og:title', 'Блог школы ИИ программирования Vibecoding — Cursor AI, вайбкодинг', true);
+    updateMeta('og:description', 'Бесплатные статьи школы ИИ программирования: туториалы Cursor AI, гайды по вайбкодингу. Создавай сайты с ИИ!', true);
     updateMeta('og:type', 'website', true);
 
     const existingSchema = document.querySelector('script[type="application/ld+json"]');
@@ -57,8 +57,8 @@ export default function Blog() {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Blog',
-      name: 'Vibecoding Blog',
-      description: 'Статьи о вайб-кодинге, Cursor AI и Bolt.new',
+      name: 'Блог школы ИИ программирования Vibecoding',
+      description: 'Гайды по Cursor AI, вайбкодингу, Bolt.new — бесплатные статьи от школы ИИ программирования',
       url: window.location.href,
       blogPost: blogPosts.map(post => ({
         '@type': 'BlogPosting',
@@ -95,9 +95,9 @@ export default function Blog() {
           <span>Блог</span>
         </nav>
 
-        <h1 className="blog-title">Блог</h1>
+        <h1 className="blog-title">Блог школы ИИ программирования</h1>
         <p className="blog-subtitle">
-          Статьи о <strong>вайб-кодинге</strong>, <strong>Cursor AI</strong>, <strong>Bolt.new</strong> и создании веб-приложений с помощью искусственного интеллекта
+          Гайды по <strong>Cursor AI</strong>, <strong>вайбкодингу</strong>, <strong>Bolt.new</strong> — создание сайтов и приложений с искусственным интеллектом. Бесплатные туториалы от лучшей школы программирования
         </p>
       </header>
 

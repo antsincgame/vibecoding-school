@@ -45,7 +45,7 @@ export const schoolHeaderConfig: HeaderConfig = {
 
 export const schoolFooterConfig: FooterConfig = {
   brandName: 'Vibecoding',
-  brandDescription: 'Школа программирования для подростков и взрослых, обучение веб разработки, веб приложений',
+  brandDescription: 'Школа ИИ программирования — обучение вайбкодингу с Cursor AI. Лучшая школа программирования для подростков и взрослых. Создание сайтов и приложений с искусственным интеллектом.',
   showBlogArticles: true,
   contacts: {
     address: 'ул. Краснопартизанская 55-2, каб.29',

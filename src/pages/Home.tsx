@@ -11,11 +11,11 @@ import HeroButton from '../components/HeroButton';
 
 const defaultSettings: HomePageSettings = {
   title: 'VIBECODING',
-  subtitle: 'Vibecoding — онлайн-школа программирования с помощью ИИ (вайбкодинг)',
+  subtitle: 'Vibecoding — школа ИИ программирования. Лучшая школа программирования с Cursor AI',
   description: 'Забудьте о сложных языках программирования! В Vibecoding мы научим вас создавать настоящие сайты, веб-сервисы и приложения, используя революционный подход — вайбкодинг с Cursor AI. Начните с бесплатного курса!',
-  meta_title: 'Вайбкодинг с нуля 2026 | Школа Vibecoding - бесплатный курс и Cursor AI',
-  meta_description: 'Вайбкодинг - создавай сайты и приложения с ИИ! Школа Vibecoding: бесплатный курс вайбкодинга и Cursor AI для начинающих. Практика с первого дня, проекты в портфолио. Онлайн обучение от 14 лет.',
-  meta_keywords: 'вайбкодинг, вайбкодинг обучение, вайбкодинг курсы, Cursor AI, бесплатный курс вайбкодинга, создание сайтов с ИИ, программирование с нейросетью, vibecoding, школа вайбкодинга',
+  meta_title: 'Школа ИИ программирования Vibecoding — Cursor AI, вайбкодинг с нуля 2026',
+  meta_description: 'Школа ИИ программирования Vibecoding — лучшая школа программирования с Cursor AI. Вайбкодинг с нуля: создавай сайты и приложения с искусственным интеллектом. Бесплатный курс, проекты в портфолио. Онлайн обучение от 14 лет для России и СНГ.',
+  meta_keywords: 'школа ии программирования, лучшая школа программирования cursor, вайбкодинг, вайбкодинг обучение, вайбкодинг курсы, Cursor AI, бесплатный курс вайбкодинга, создание сайтов с ИИ, программирование с нейросетью, vibecoding, школа вайбкодинга, ии программирование обучение, курсы программирования с искусственным интеллектом, онлайн школа программирования',
 };
 
 export default function Home() {
@@ -63,8 +63,8 @@ export default function Home() {
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
-      "name": "Vibecoding",
-      "alternateName": "Школа вайбкодинга",
+      "name": "Vibecoding — школа ИИ программирования",
+      "alternateName": ["Школа вайбкодинга", "Школа ИИ программирования", "Лучшая школа программирования Cursor AI"],
       "url": "https://vibecoding.by",
       "logo": "https://vibecoding.by/bolt-new-logo.jpg",
       "description": settings.meta_description || defaultSettings.meta_description,
@@ -74,12 +74,16 @@ export default function Home() {
         "addressLocality": "Минск"
       },
       "sameAs": [
-        "https://t.me/vibecodingby"
+        "https://t.me/vibecodingby",
+        "https://www.youtube.com/@vibecodingby",
+        "https://www.instagram.com/dzmitry_arlou"
       ],
-      "areaServed": {
-        "@type": "Country",
-        "name": "Belarus"
-      },
+      "areaServed": [
+        { "@type": "Country", "name": "Belarus" },
+        { "@type": "Country", "name": "Russia" },
+        { "@type": "Country", "name": "Kazakhstan" },
+        { "@type": "Country", "name": "Uzbekistan" }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Курсы вайбкодинга",
@@ -103,9 +107,10 @@ export default function Home() {
     const websiteSchema = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Vibecoding",
-      "alternateName": "Школа вайбкодинга",
+      "name": "Vibecoding — школа ИИ программирования",
+      "alternateName": ["Школа вайбкодинга", "Школа ИИ программирования", "Лучшая школа программирования Cursor"],
       "url": "https://vibecoding.by",
+      "inLanguage": "ru",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://vibecoding.by/?search={search_term_string}",

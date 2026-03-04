@@ -608,16 +608,16 @@ export default function ProgrammingHistory() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    document.title = 'История программирования | От Антикитерского механизма до вайбкодинга - 2000 лет автоматизации';
+    document.title = 'История программирования — от Антикитерского механизма до ИИ программирования и Cursor AI';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Полная история программирования за 2000 лет: Антикитерский механизм (100 до н.э.), Жаккар (1804), Ada Lovelace (1843), Hedy Lamarr (1942), Grace Hopper (1952), TabNine (2018), GitHub Copilot (2021), ChatGPT (2022), Cursor (2023), вайбкодинг Андрея Карпатого (2025).');
+      metaDescription.setAttribute('content', 'Полная история программирования за 2000 лет: от Антикитерского механизма до ИИ программирования с Cursor AI. Ada Lovelace, Grace Hopper, GitHub Copilot, ChatGPT, вайбкодинг Андрея Карпатого. Как школа ИИ программирования Vibecoding продолжает эту историю.');
     }
 
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'история программирования, антикитерский механизм, первый компьютер, вайбкодинг, Андрей Карпатый, Ada Lovelace, Grace Hopper, Hedy Lamarr Wi-Fi, Joseph Marie Jacquard, Torres Quevedo, Vannevar Bush, TabNine, GitHub Copilot, ChatGPT, Cursor IDE, AI программирование, история автоматизации, цикл Сарос, Метонический цикл, перфокарты');
+      metaKeywords.setAttribute('content', 'история программирования, ии программирование история, антикитерский механизм, первый компьютер, вайбкодинг, Андрей Карпатый, Ada Lovelace, Grace Hopper, GitHub Copilot, ChatGPT, Cursor IDE, AI программирование, школа ии программирования');
     }
 
     const handleScroll = () => {

@@ -2,164 +2,204 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vibecoding.by/</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/courses</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/trial</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/about</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog</loc>
-    <lastmod>2026-01-16</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vibecoding.by/blog/polnyy-gayd-po-vaybkodingu-2026-ot-novichka-do-masterstva</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://vibecoding.by/blog/100-layfhakov-po-bolt-new-2026-polnyy-gayd</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://vibecoding.by/blog/kak-sdelat-sayt-struktura-dizayn-gayd-2026</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://vibecoding.by/works</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/q-a</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/history</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/privacy</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/offer</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- Курсы -->
   <url>
     <loc>https://vibecoding.by/course/vibecoder-free</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://vibecoding.by/course/architect-vibecode</loc>
-    <lastmod>2025-12-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/course/cursor-ai</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/course/architect-vibecode</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/course/vibecoding-bolt-new</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Блог — ключевые статьи -->
   <url>
-    <loc>https://vibecoding.by/blog/chto-takoe-cursor-ai</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://vibecoding.by/blog/polnyy-gayd-po-vaybkodingu-2026-ot-novichka-do-masterstva</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://vibecoding.by/blog/veb-dizayn-osnovy-ux-ui</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://vibecoding.by/blog/polnyj-gajd-cursor-ai-2026</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/ii-agenty-polnyj-gajd-2026</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/top-100-cursor-ai-rules-2026</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/cursor-ai-skills-top-10-guide-2026</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/mcp-servers-cursor-ai-guide-top-10</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/100-layfhakov-po-bolt-new-2026-polnyy-gayd</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/kak-sdelat-sayt-struktura-dizayn-gayd-2026</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/zarabotok-vibecoding-freelance-guide-2025</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/chto-takoe-cursor-ai</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vibecoding.by/blog/chto-takoe-bolt-new</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/seo-osnovy-dlya-saytov</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibecoding.by/blog/zarabotok-vibecoding-freelance-guide-2025</loc>
-    <lastmod>2026-01-09</lastmod>
+    <loc>https://vibecoding.by/blog/veb-dizayn-osnovy-ux-ui</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibecoding.by/blog/polnyj-gajd-cursor-ai-2026</loc>
-    <lastmod>2026-01-06</lastmod>
+    <loc>https://vibecoding.by/blog/bolt-new-100-lifehacks-2026</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/vaibkoding-shkoly-nextjs-supabase-resend</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/project-knowledge-pravila-raboty-s-bolt-new-dlya-studentov</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vibecoding.by/blog/chto-takoe-bolt-new</loc>
-    <lastmod>2025-12-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/github-dlya-nachinayuschih-bolt-new</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/supabase-baza-dannyh-dlya-bolt-new</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://vibecoding.by/blog/deploy-sayta-netlify-vs-vps</loc>
-    <lastmod>2025-12-18</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
 </urlset>
