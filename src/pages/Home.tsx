@@ -695,7 +695,12 @@ export default function Home() {
                   )}
 
                   {pricing.isFree ? (
-                    <Link to="/student/login" style={{ textDecoration: 'none', display: 'block' }}>
+                    <a
+                      href="https://www.youtube.com/@vibecodingby"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: 'none', display: 'block' }}
+                    >
                       <button
                         className="cyber-button"
                         style={{
@@ -708,9 +713,9 @@ export default function Home() {
                           color: 'var(--neon-green)'
                         }}
                       >
-                        Требуется регистрация
+                        Наш YouTube с бесплатными уроками по вайбкодингу
                       </button>
-                    </Link>
+                    </a>
                   ) : (
                     <>
                       <HeroButton
