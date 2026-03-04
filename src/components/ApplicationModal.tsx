@@ -583,6 +583,18 @@ export default function ApplicationModal({ isOpen, onClose, preselectedCourse }:
                       >
                         публичной оферты
                       </a>
+                      {' '}и{' '}
+                      <a
+                        href="/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: 'var(--neon-cyan)',
+                          textDecoration: 'underline'
+                        }}
+                      >
+                        политики конфиденциальности
+                      </a>
                       <span style={{ color: 'var(--neon-pink)' }}> *</span>
                     </span>
                   </label>
@@ -649,7 +661,7 @@ export default function ApplicationModal({ isOpen, onClose, preselectedCourse }:
                   textAlign: 'center',
                   lineHeight: '1.5'
                 }}>
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  Нажимая кнопку, вы соглашаетесь с <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--neon-cyan)' }}>политикой конфиденциальности</a>
                 </p>
               </form>
             </>

@@ -446,6 +446,18 @@ export default function FounderQuestionForm({ onSuccess }: FounderQuestionFormPr
                   >
                     публичной оферты
                   </a>
+                  {' '}и{' '}
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: 'var(--neon-cyan)',
+                      textDecoration: 'underline'
+                    }}
+                  >
+                    политики конфиденциальности
+                  </a>
                   <span style={{ color: 'var(--neon-pink)' }}> *</span>
                 </span>
               </label>
@@ -480,7 +492,7 @@ export default function FounderQuestionForm({ onSuccess }: FounderQuestionFormPr
               textAlign: 'center',
               margin: 0
             }}>
-              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              Нажимая кнопку, вы соглашаетесь с <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--neon-cyan)' }}>политикой конфиденциальности</a>
             </p>
           </form>
         </div>

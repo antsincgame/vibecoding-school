@@ -328,6 +328,18 @@ export default function Trial() {
                   >
                     публичной оферты
                   </a>
+                  {' '}и{' '}
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: 'var(--neon-cyan)',
+                      textDecoration: 'underline'
+                    }}
+                  >
+                    политики конфиденциальности
+                  </a>
                   <span style={{ color: 'var(--neon-pink)' }}> *</span>
                 </span>
               </label>
