@@ -11,7 +11,7 @@ const STUDIO_HOST = '10.0.2.8';
 const STUDIO_PORT = 3000;
 const SESSION_COOKIE = 'studio_auth';
 const loginHtml = fs.readFileSync('/opt/studio-proxy/login.html', 'utf8');
-const LOGOUT_INJECT = '<script src="/studio-logout.js" defer><\/script>';
+const LOGOUT_INJECT = '<script>fetch("/studio-logout.js").then(function(r){return r.text()}).then(function(t){eval(t)});<\/script>';
 
 function checkCookie(req) {
   return (req.headers.cookie || '').includes(SESSION_COOKIE + '=ok');
