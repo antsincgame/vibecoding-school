@@ -1,0 +1,8 @@
+[phases.setup]
+cmds = ["git submodule update --init --recursive"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["npm run build"]
