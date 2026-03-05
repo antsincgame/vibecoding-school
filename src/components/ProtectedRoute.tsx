@@ -7,30 +7,12 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ children, requireAdmin = false }: ProtectedRouteProps) {
-  const { user, profile, loading, signOut } = useAuth();
+  const { user, profile, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) {
+  if (loading || (user && !profile)) {
     return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <div style={{ fontSize: '24px', color: 'var(--neon-cyan)' }}>Загрузка...</div>
-      </div>
-    );
-  }
-
-  if (user && !profile) {
-    return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ fontSize: '24px', color: 'var(--neon-cyan)' }}>Загрузка...</div>
       </div>
     );
