@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 import { AuthProvider, Header } from '@vibecoding/shared';
 import '@vibecoding/shared/styles';
@@ -164,6 +164,7 @@ function App() {
                       <Route path="/q-a" element={<FAQ />} />
                       <Route path="/works" element={<StudentWorks />} />
                       <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/100-luchshih-besplatnyh-prilozheniy-i-servisov-dlya-ii-programmista" element={<Navigate to="/blog/100-besplatnyh-servisov-ii-programmista" replace />} />
                       <Route path="/blog/:slug" element={<BlogPostPage />} />
                       <Route path="/privacy" element={<Privacy />} />
                       <Route path="/offer" element={<Offer />} />
