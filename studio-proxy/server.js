@@ -11,7 +11,7 @@ const STUDIO_HOST = '10.0.2.8';
 const STUDIO_PORT = 3000;
 const SESSION_COOKIE = 'studio_auth';
 const loginHtml = fs.readFileSync('/opt/studio-proxy/login.html', 'utf8');
-const LOGOUT_INJECT = '<script>(function(){function a(){var b=document.querySelector(\'button[aria-controls="command-menu-dialog-content"]\');if(!b)return setTimeout(a,500);var c=document.createElement(\'button\');c.innerText=\'Выйти\';c.style.cssText=\'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0\';c.onclick=function(){fetch(\'/logout\').then(function(){location.href=\'/\'})};b.parentNode.insertBefore(c,b)}a()})();<\/script>';
+const LOGOUT_INJECT = '<script>(function(){var done=false;var t=setInterval(function(){if(done)return;var b=document.querySelector(\'button[aria-controls="command-menu-dialog-content"]\');if(!b)return;done=true;clearInterval(t);var c=document.createElement(\'button\');c.innerText=\'Выйти\';c.style.cssText=\'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0\';c.onclick=function(){fetch(\'/logout\').then(function(){location.href=\'/\'})};b.parentNode.insertBefore(c,b)},300);})();<\/script>';
 
 function checkCookie(req) {
   return (req.headers.cookie || '').includes(SESSION_COOKIE + '=ok');
