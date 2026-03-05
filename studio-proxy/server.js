@@ -50,19 +50,22 @@ const server = http.createServer((req, res) => {
     res.end(`
 (function() {
   function addBtn() {
+    if (document.getElementById('studio-exit-btn')) return;
     var b = document.querySelector('button[aria-controls="command-menu-dialog-content"]');
     if (!b) return;
-    if (document.getElementById('studio-exit-btn')) return;
     var c = document.createElement('button');
     c.id = 'studio-exit-btn';
     c.innerText = 'Выйти';
-    c.style.cssText = 'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0';
+    c.style.cssText = 'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0;z-index:9999;position:relative';
     c.onclick = function() { fetch('/logout').then(function() { location.href = '/'; }); };
     b.parentNode.insertBefore(c, b);
   }
-  var observer = new MutationObserver(addBtn);
-  observer.observe(document.body, { childList: true, subtree: true });
-  addBtn();
+  // Wait for React to finish hydration
+  setTimeout(function() {
+    addBtn();
+    var observer = new MutationObserver(addBtn);
+    observer.observe(document.body, { childList: true, subtree: true });
+  }, 2000);
 })();
     `);
     return;
