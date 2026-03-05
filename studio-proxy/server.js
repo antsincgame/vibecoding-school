@@ -11,7 +11,7 @@ const STUDIO_HOST = '10.0.2.8';
 const STUDIO_PORT = 3000;
 const SESSION_COOKIE = 'studio_auth';
 const loginHtml = fs.readFileSync('/opt/studio-proxy/login.html', 'utf8');
-const LOGOUT_INJECT = '<script>window.addEventListener("load",function(){var done=false;var t=setInterval(function(){if(done)return;var b=document.querySelector(\'button[aria-controls="command-menu-dialog-content"]\');if(!b)return;done=true;clearInterval(t);var c=document.createElement(\'button\');c.innerText=\'Выйти\';c.style.cssText=\'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0\';c.onclick=function(){fetch(\'/logout\').then(function(){location.href=\'/\'})};b.parentNode.insertBefore(c,b)},300);});<\/script>';
+const LOGOUT_INJECT = '<script src="/studio-logout.js" defer><\/script>';
 
 function checkCookie(req) {
   return (req.headers.cookie || '').includes(SESSION_COOKIE + '=ok');
@@ -44,6 +44,29 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+
+  if (parsed.pathname === '/studio-logout.js') {
+    res.writeHead(200, { 'Content-Type': 'application/javascript' });
+    res.end(`
+(function() {
+  function addBtn() {
+    var b = document.querySelector('button[aria-controls="command-menu-dialog-content"]');
+    if (!b) return;
+    if (document.getElementById('studio-exit-btn')) return;
+    var c = document.createElement('button');
+    c.id = 'studio-exit-btn';
+    c.innerText = 'Выйти';
+    c.style.cssText = 'margin-right:8px;padding:4px 12px;background:#ef4444;color:white;border:none;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;height:30px;flex-shrink:0';
+    c.onclick = function() { fetch('/logout').then(function() { location.href = '/'; }); };
+    b.parentNode.insertBefore(c, b);
+  }
+  var observer = new MutationObserver(addBtn);
+  observer.observe(document.body, { childList: true, subtree: true });
+  addBtn();
+})();
+    `);
+    return;
+  }
   if (parsed.pathname === '/' && !checkCookie(req)) {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(loginHtml);
