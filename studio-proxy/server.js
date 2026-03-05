@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
+const zlib = require('zlib');
 
 const USERS = {
   'supabase': '445c338942e85589cbbc98dbb49247f2',
@@ -49,20 +50,25 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const options = {
-    hostname: STUDIO_HOST, port: STUDIO_PORT, path: req.url, method: req.method,
-    headers: { ...req.headers, host: STUDIO_HOST, authorization: 'Basic ' + Buffer.from('supabase:445c338942e85589cbbc98dbb49247f2').toString('base64') }
-  };
+  // Remove accept-encoding so Studio returns uncompressed HTML
+  const reqHeaders = { ...req.headers, host: STUDIO_HOST, authorization: 'Basic ' + Buffer.from('supabase:445c338942e85589cbbc98dbb49247f2').toString('base64') };
+  delete reqHeaders['accept-encoding'];
+
+  const options = { hostname: STUDIO_HOST, port: STUDIO_PORT, path: req.url, method: req.method, headers: reqHeaders };
 
   const proxy = http.request(options, (proxyRes) => {
     const ct = proxyRes.headers['content-type'] || '';
     if (ct.includes('text/html')) {
       const headers = { ...proxyRes.headers };
       delete headers['content-length'];
+      delete headers['content-encoding'];
       res.writeHead(proxyRes.statusCode, headers);
       let body = '';
       proxyRes.on('data', chunk => body += chunk);
-      proxyRes.on('end', () => { res.end(body.replace('</head>', LOGOUT_INJECT + '</head>')); });
+      proxyRes.on('end', () => {
+        body = body + LOGOUT_INJECT;
+        res.end(body);
+      });
     } else {
       res.writeHead(proxyRes.statusCode, proxyRes.headers);
       proxyRes.pipe(res);
