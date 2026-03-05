@@ -62,7 +62,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(proxyRes.statusCode, headers);
       let body = '';
       proxyRes.on('data', chunk => body += chunk);
-      proxyRes.on('end', () => { res.end(body.replace('</html>', LOGOUT_INJECT + '</html>')); });
+      proxyRes.on('end', () => { res.end(body.replace('</head>', LOGOUT_INJECT + '</head>')); });
     } else {
       res.writeHead(proxyRes.statusCode, proxyRes.headers);
       proxyRes.pipe(res);
