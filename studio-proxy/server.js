@@ -51,8 +51,13 @@ const server = http.createServer((req, res) => {
   }
 
   if (!checkCookie(req)) {
-    res.writeHead(302, {'Location': '/'});
-    res.end();
+    if (parsed.pathname === '/') {
+      res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+      res.end(loginHtml);
+    } else {
+      res.writeHead(302, {'Location': '/'});
+      res.end();
+    }
     return;
   }
 
