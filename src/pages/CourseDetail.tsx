@@ -102,7 +102,7 @@ export default function CourseDetail() {
     }
 
     if (data) {
-      setCourse(data);
+      setCourse({ ...data, features: typeof data.features === "string" ? JSON.parse(data.features) : data.features });
       setSEO(data);
       loadModules(data.id);
     }
