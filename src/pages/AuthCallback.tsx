@@ -8,58 +8,49 @@ export default function AuthCallback() {
   const processedRef = useRef(false);
 
   useEffect(() => {
-    const handleAuth = async () => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (processedRef.current) return;
-      processedRef.current = true;
+      if (event === 'SIGNED_IN' && session?.user) {
+        processedRef.current = true;
+        const user = session.user;
+        setStatus('Проверка профиля...');
+        try {
+          const { data: profile } = await supabase
+            .from('profiles').select('id, email, role')
+            .eq('email', user.email).maybeSingle();
 
-      try {
-        setStatus('Проверка сессии...');
-
-        // Handle PKCE code exchange
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get('code');
-        if (code) {
-          const { error } = await supabase.auth.exchangeCodeForSession(code);
-          if (error) throw error;
-        }
-
-        const { data, error } = await supabase.auth.getSession();
-        if (error) throw error;
-
-        const user = data.session?.user;
-        if (user) {
-          setStatus('Проверка профиля...');
-          for (let j = 0; j < 5; j++) {
-            const { data: profile } = await supabase
-              .from('profiles').select('id, email, role')
-              .eq('email', user.email).maybeSingle();
-            if (profile) {
-              setStatus('Успешно! Перенаправление...');
-              setTimeout(() => navigate('/student/dashboard', { replace: true }), 300);
-              return;
-            }
-            await new Promise(r => setTimeout(r, 500));
+          if (!profile) {
+            setStatus('Создание профиля...');
+            await supabase.from('profiles').insert({
+              id: user.id,
+              email: user.email,
+              full_name: user.user_metadata?.full_name || user.email!.split('@')[0],
+              role: 'student',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            });
           }
-          setStatus('Создание профиля...');
-          await supabase.from('profiles').insert({
-            id: user.id,
-            email: user.email,
-            full_name: user.user_metadata?.full_name || user.email!.split('@')[0],
-            role: 'student',
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-          });
           setStatus('Успешно! Перенаправление...');
           setTimeout(() => navigate('/student/dashboard', { replace: true }), 300);
-          return;
+        } catch (err) {
+          console.error('Auth callback error:', err);
+          setStatus('Ошибка авторизации');
+          setTimeout(() => navigate('/student/login', { replace: true }), 1500);
         }
-      } catch (err) {
-        console.error('Auth callback error:', err);
+      } else if (event === 'SIGNED_OUT') {
+        navigate('/student/login', { replace: true });
       }
-      setStatus('Ошибка авторизации');
-      setTimeout(() => navigate('/student/login', { replace: true }), 1500);
-    };
-    handleAuth();
+    });
+
+    // Timeout fallback
+    const timeout = setTimeout(() => {
+      if (!processedRef.current) {
+        setStatus('Ошибка авторизации');
+        setTimeout(() => navigate('/student/login', { replace: true }), 1500);
+      }
+    }, 10000);
+
+    return () => { subscription.unsubscribe(); clearTimeout(timeout); };
   }, [navigate]);
 
   return (
