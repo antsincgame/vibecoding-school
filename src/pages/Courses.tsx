@@ -52,7 +52,7 @@ export default function Courses() {
     }
 
     if (data) {
-      setCourses(data);
+      setCourses(data.map(c => ({ ...c, features: typeof c.features === "string" ? JSON.parse(c.features) : c.features })));
     }
     setLoading(false);
   };
