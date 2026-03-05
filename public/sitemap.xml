@@ -89,6 +89,12 @@
 
   <!-- Блог — ключевые статьи -->
   <url>
+    <loc>https://vibecoding.by/blog/100-luchshih-besplatnyh-prilozheniy-i-servisov-dlya-ii-programmista</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://vibecoding.by/blog/polnyy-gayd-po-vaybkodingu-2026-ot-novichka-do-masterstva</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
