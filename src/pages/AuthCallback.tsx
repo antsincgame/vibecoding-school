@@ -14,6 +14,15 @@ export default function AuthCallback() {
 
       try {
         setStatus('Проверка сессии...');
+
+        // Handle PKCE code exchange
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          if (error) throw error;
+        }
+
         const { data, error } = await supabase.auth.getSession();
         if (error) throw error;
 
