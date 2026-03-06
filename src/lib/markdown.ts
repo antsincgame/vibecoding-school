@@ -113,13 +113,6 @@ export function renderMarkdown(text: string): string {
     return `__INLINE_CODE_${idx}__`;
   });
 
-  const tables: string[] = [];
-  html = html.replace(/((?:^\|.+\|[ \t]*\n){2,})/gm, (tableBlock) => {
-    const idx = tables.length;
-    tables.push(parseMarkdownTable(tableBlock));
-    return `__TABLE_BLOCK_${idx}__`;
-  });
-
   html = html.replace(/^#### (.+)$/gm, (_, heading) => {
     const id = slugify(heading);
     return `<h4 class="md-h4" id="${id}">${heading}</h4>`;
@@ -145,23 +138,30 @@ export function renderMarkdown(text: string): string {
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="md-strong">$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em class="md-em">$1</em>');
 
-  html = html.replace(/\[(.+?)\]\(\/([^)]+)\)/g, (_, text, path) => {
-    const safeUrl = sanitizeUrl('/' + path);
-    return safeUrl ? `<a href="${safeUrl}" class="md-link md-internal-link">${escapeHtml(text)}</a>` : escapeHtml(text);
-  });
-  html = html.replace(/\[(.+?)\]\((https?:\/\/[^)]+)\)/g, (_, text, url) => {
-    const safeUrl = sanitizeUrl(url);
-    return safeUrl ? `<a href="${safeUrl}" class="md-link md-external-link" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}</a>` : escapeHtml(text);
-  });
-  html = html.replace(/\[(.+?)\]\(([^)]+)\)/g, (_, text, url) => {
-    const safeUrl = sanitizeUrl(url);
-    return safeUrl ? `<a href="${safeUrl}" class="md-link">${escapeHtml(text)}</a>` : escapeHtml(text);
-  });
-
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
     const safeUrl = sanitizeUrl(url);
     const safeAlt = escapeHtml(alt);
     return safeUrl ? `<figure class="md-figure"><img src="${safeUrl}" alt="${safeAlt}" class="md-image" loading="lazy"><figcaption class="md-figcaption">${safeAlt}</figcaption></figure>` : '';
+  });
+
+  html = html.replace(/\[(.+?)\]\(\/([^)]+)\)/g, (_, linkText, path) => {
+    const safeUrl = sanitizeUrl('/' + path);
+    return safeUrl ? `<a href="${safeUrl}" class="md-link md-internal-link">${linkText}</a>` : linkText;
+  });
+  html = html.replace(/\[(.+?)\]\((https?:\/\/[^)]+)\)/g, (_, linkText, url) => {
+    const safeUrl = sanitizeUrl(url);
+    return safeUrl ? `<a href="${safeUrl}" class="md-link md-external-link" target="_blank" rel="noopener noreferrer">${linkText}</a>` : linkText;
+  });
+  html = html.replace(/\[(.+?)\]\(([^)]+)\)/g, (_, linkText, url) => {
+    const safeUrl = sanitizeUrl(url);
+    return safeUrl ? `<a href="${safeUrl}" class="md-link">${linkText}</a>` : linkText;
+  });
+
+  const tables: string[] = [];
+  html = html.replace(/((?:^\|.+\|[ \t]*$\n?){2,})/gm, (tableBlock) => {
+    const idx = tables.length;
+    tables.push(parseMarkdownTable(tableBlock));
+    return `\n__TABLE_BLOCK_${idx}__\n`;
   });
 
   const lines = html.split('\n');
@@ -204,7 +204,7 @@ export function renderMarkdown(text: string): string {
         if (result.length > 0 && !result[result.length - 1].match(/<\/(h[1-4]|ul|ol|pre|blockquote|hr|figure)>/)) {
           result.push('<div class="md-spacer"></div>');
         }
-      } else if (!trimmed.startsWith('<h') && !trimmed.startsWith('<blockquote') && !trimmed.startsWith('<hr') && !trimmed.startsWith('<figure') && !trimmed.startsWith('__CODE_BLOCK')) {
+      } else if (!trimmed.startsWith('<h') && !trimmed.startsWith('<blockquote') && !trimmed.startsWith('<hr') && !trimmed.startsWith('<figure') && !trimmed.startsWith('__CODE_BLOCK') && !trimmed.startsWith('__TABLE_BLOCK')) {
         result.push(`<p class="md-p">${trimmed}</p>`);
       } else {
         result.push(line);
@@ -216,17 +216,17 @@ export function renderMarkdown(text: string): string {
 
   html = result.join('\n');
 
+  tables.forEach((table, idx) => {
+    html = html.replace(`<p class="md-p">__TABLE_BLOCK_${idx}__</p>`, table);
+    html = html.replace(`__TABLE_BLOCK_${idx}__`, table);
+  });
+
   codeBlocks.forEach((block, idx) => {
     html = html.replace(`__CODE_BLOCK_${idx}__`, block);
   });
 
   inlineCode.forEach((code, idx) => {
     html = html.replace(`__INLINE_CODE_${idx}__`, code);
-  });
-
-  tables.forEach((table, idx) => {
-    html = html.replace(`<p class="md-p">__TABLE_BLOCK_${idx}__</p>`, table);
-    html = html.replace(`__TABLE_BLOCK_${idx}__`, table);
   });
 
   html = html.replace(/<p class="md-p">(<pre|<h[1-4]|<ul|<ol|<blockquote|<hr|<figure|<div)/g, '$1');
