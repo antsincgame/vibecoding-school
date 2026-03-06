@@ -8,7 +8,6 @@ export const schoolHeaderConfig: HeaderConfig = {
   navLinks: [
     { to: '/', label: 'Главная' },
     { to: '/courses', label: 'Курсы' },
-    { to: '/trial', label: 'Пробный урок' },
     { to: '/about', label: 'Преподаватели' },
     { to: '/q-a', label: 'FAQ' },
     { to: '/blog', label: 'Блог' },

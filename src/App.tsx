@@ -12,7 +12,6 @@ import { schoolHeaderConfig, schoolFooterConfig } from './config/shared';
 const Home = lazy(() => import('./pages/Home'));
 const Courses = lazy(() => import('./pages/Courses'));
 const About = lazy(() => import('./pages/About'));
-const Trial = lazy(() => import('./pages/Trial'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Login = lazy(() => import('./pages/Login'));
 const Admin = lazy(() => import('./pages/Admin'));
@@ -159,7 +158,6 @@ function App() {
                       <Route path="/courses" element={<Courses />} />
                       <Route path="/course/:slug" element={<CourseDetail />} />
                       <Route path="/about" element={<About />} />
-                      <Route path="/trial" element={<Trial />} />
                       <Route path="/q-a" element={<FAQ />} />
                       <Route path="/works" element={<StudentWorks />} />
                       <Route path="/blog" element={<Blog />} />
