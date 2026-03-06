@@ -10,7 +10,7 @@
     "deploy:functions": "supabase functions deploy --project-ref zxywgueplrosvdwgpmvb"
   },
   "dependencies": {
-    "appwrite": "^16.0.0",
+    "appwrite": "^23.0.0",
     "@types/dompurify": "^3.0.5",
     "dompurify": "^3.3.1",
     "lucide-react": "^0.564.0",
