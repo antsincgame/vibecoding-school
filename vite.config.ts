@@ -32,7 +32,7 @@ export default defineConfig(({ command }) => ({
       { find: '@vibecoding/shared/styles', replacement: resolve(__dirname, 'shared/src/styles/shared.css') },
       { find: '@vibecoding/shared', replacement: resolve(__dirname, 'shared/src') },
     ],
-    dedupe: ['react', 'react-dom', 'react-router-dom', '@supabase/supabase-js'],
+    dedupe: ['react', 'react-dom', 'react-router-dom', 'appwrite'],
   },
   build: {
     outDir: 'dist',
@@ -48,7 +48,7 @@ export default defineConfig(({ command }) => ({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'router': ['react-router-dom'],
-          'supabase': ['@supabase/supabase-js'],
+          'appwrite': ['appwrite'],
         },
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',

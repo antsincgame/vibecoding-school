@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy:functions": "supabase functions deploy --project-ref zxywgueplrosvdwgpmvb"
   },
   "dependencies": {
     "appwrite": "^23.0.0",
