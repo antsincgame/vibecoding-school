@@ -69,7 +69,6 @@ function App() {
         <ScrollToTop />
         <AuthProvider>
           <div className="cyber-grid" />
-          <div className="scan-line" />
 
           <Suspense fallback={<PageLoader />}>
             <Routes>

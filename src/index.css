@@ -41,25 +41,7 @@ body {
   content-visibility: auto;
 }
 
-.scan-line {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-  animation: scan 4s linear infinite;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.5;
-  will-change: top;
-  contain: layout style;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .scan-line {
-    animation: none;
-    display: none;
-  }
   .glitch {
     animation: none;
   }
@@ -68,10 +50,6 @@ body {
   }
 }
 
-@keyframes scan {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
 
 .glitch {
   position: relative;
