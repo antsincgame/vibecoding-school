@@ -632,6 +632,68 @@ export default function BlogPostPage() {
           font-style: italic;
         }
 
+        .blog-post-content .md-table-wrap {
+          margin: 30px 0;
+          overflow-x: auto;
+          border-radius: 12px;
+          border: 1px solid rgba(0, 245, 255, 0.15);
+          background: linear-gradient(145deg, rgba(10, 10, 25, 0.9), rgba(15, 15, 35, 0.95));
+          box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.4),
+            0 0 40px rgba(0, 245, 255, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .blog-post-content .md-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        .blog-post-content .md-table thead {
+          background: linear-gradient(135deg, rgba(0, 245, 255, 0.12), rgba(139, 92, 246, 0.1));
+          border-bottom: 2px solid rgba(0, 245, 255, 0.25);
+        }
+
+        .blog-post-content .md-table th {
+          padding: 14px 18px;
+          text-align: left;
+          font-weight: 700;
+          font-size: 13px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: var(--neon-cyan, #00f5ff);
+          white-space: nowrap;
+        }
+
+        .blog-post-content .md-table td {
+          padding: 12px 18px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+          color: rgba(255, 255, 255, 0.85);
+          vertical-align: top;
+        }
+
+        .blog-post-content .md-table tbody tr {
+          transition: background 0.2s ease;
+        }
+
+        .blog-post-content .md-table tbody tr:hover {
+          background: rgba(0, 245, 255, 0.04);
+        }
+
+        .blog-post-content .md-table tbody tr:nth-child(even) {
+          background: rgba(255, 255, 255, 0.015);
+        }
+
+        .blog-post-content .md-table tbody tr:nth-child(even):hover {
+          background: rgba(0, 245, 255, 0.06);
+        }
+
+        .blog-post-content .md-table tbody tr:last-child td {
+          border-bottom: none;
+        }
+
         .blog-post-footer {
           margin-top: 50px;
           padding-top: 30px;

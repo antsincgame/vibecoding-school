@@ -52,6 +52,50 @@ function sanitizeUrl(url: string): string {
   return escapeHtml(trimmed);
 }
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]+>/g, '')
+    .replace(/[^\w\sа-яёa-z0-9-]/gi, '')
+    .trim()
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function parseMarkdownTable(block: string): string {
+  const rows = block.trim().split('\n');
+  if (rows.length < 2) return block;
+
+  const parseRow = (row: string): string[] =>
+    row.split('|').map(c => c.trim()).filter((_, i, a) => i > 0 && i < a.length);
+
+  const headerCells = parseRow(rows[0]);
+  if (headerCells.length === 0) return block;
+
+  const separatorMatch = rows[1].match(/^\|?[\s:]*-+[\s:]*(\|[\s:]*-+[\s:]*)*\|?$/);
+  if (!separatorMatch) return block;
+
+  let tableHtml = '<div class="md-table-wrap"><table class="md-table"><thead><tr>';
+  for (const cell of headerCells) {
+    tableHtml += `<th>${cell}</th>`;
+  }
+  tableHtml += '</tr></thead><tbody>';
+
+  for (let i = 2; i < rows.length; i++) {
+    const cells = parseRow(rows[i]);
+    if (cells.length === 0) continue;
+    tableHtml += '<tr>';
+    for (let j = 0; j < headerCells.length; j++) {
+      tableHtml += `<td>${cells[j] ?? ''}</td>`;
+    }
+    tableHtml += '</tr>';
+  }
+
+  tableHtml += '</tbody></table></div>';
+  return tableHtml;
+}
+
 export function renderMarkdown(text: string): string {
   if (!text) return '';
 
@@ -69,10 +113,29 @@ export function renderMarkdown(text: string): string {
     return `__INLINE_CODE_${idx}__`;
   });
 
-  html = html.replace(/^#### (.+)$/gm, '<h4 class="md-h4">$1</h4>');
-  html = html.replace(/^### (.+)$/gm, '<h3 class="md-h3">$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2 class="md-h2">$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1 class="md-h1">$1</h1>');
+  const tables: string[] = [];
+  html = html.replace(/((?:^\|.+\|[ \t]*\n){2,})/gm, (tableBlock) => {
+    const idx = tables.length;
+    tables.push(parseMarkdownTable(tableBlock));
+    return `__TABLE_BLOCK_${idx}__`;
+  });
+
+  html = html.replace(/^#### (.+)$/gm, (_, heading) => {
+    const id = slugify(heading);
+    return `<h4 class="md-h4" id="${id}">${heading}</h4>`;
+  });
+  html = html.replace(/^### (.+)$/gm, (_, heading) => {
+    const id = slugify(heading);
+    return `<h3 class="md-h3" id="${id}">${heading}</h3>`;
+  });
+  html = html.replace(/^## (.+)$/gm, (_, heading) => {
+    const id = slugify(heading);
+    return `<h2 class="md-h2" id="${id}">${heading}</h2>`;
+  });
+  html = html.replace(/^# (.+)$/gm, (_, heading) => {
+    const id = slugify(heading);
+    return `<h1 class="md-h1" id="${id}">${heading}</h1>`;
+  });
 
   html = html.replace(/^---$/gm, '<hr class="md-hr">');
 
@@ -161,12 +224,17 @@ export function renderMarkdown(text: string): string {
     html = html.replace(`__INLINE_CODE_${idx}__`, code);
   });
 
-  html = html.replace(/<p class="md-p">(<pre|<h[1-4]|<ul|<ol|<blockquote|<hr|<figure)/g, '$1');
-  html = html.replace(/(<\/pre>|<\/h[1-4]>|<\/ul>|<\/ol>|<\/blockquote>|<\/figure>)<\/p>/g, '$1');
+  tables.forEach((table, idx) => {
+    html = html.replace(`<p class="md-p">__TABLE_BLOCK_${idx}__</p>`, table);
+    html = html.replace(`__TABLE_BLOCK_${idx}__`, table);
+  });
+
+  html = html.replace(/<p class="md-p">(<pre|<h[1-4]|<ul|<ol|<blockquote|<hr|<figure|<div)/g, '$1');
+  html = html.replace(/(<\/pre>|<\/h[1-4]>|<\/ul>|<\/ol>|<\/blockquote>|<\/figure>|<\/div>)<\/p>/g, '$1');
 
   return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'p', 'strong', 'em', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'img', 'figure', 'figcaption', 'hr', 'div', 'br'],
-    ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'target', 'rel', 'data-lang', 'loading'],
+    ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'p', 'strong', 'em', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'img', 'figure', 'figcaption', 'hr', 'div', 'br', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+    ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'target', 'rel', 'data-lang', 'loading', 'id'],
     ALLOW_DATA_ATTR: false,
     ADD_ATTR: ['target', 'rel']
   });
