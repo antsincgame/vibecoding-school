@@ -161,7 +161,8 @@ function App() {
                       <Route path="/q-a" element={<FAQ />} />
                       <Route path="/works" element={<StudentWorks />} />
                       <Route path="/blog" element={<Blog />} />
-                      <Route path="/blog/100-luchshih-besplatnyh-prilozheniy-i-servisov-dlya-ii-programmista" element={<Navigate to="/blog/100-besplatnyh-servisov-ii-programmista" replace />} />
+                      <Route path="/blog/100-luchshih-besplatnyh-prilozheniy-i-servisov-dlya-ii-programmista" element={<Navigate to="/blog/100-free-developer-tools" replace />} />
+                      <Route path="/blog/100-besplatnyh-servisov-ii-programmista" element={<Navigate to="/blog/100-free-developer-tools" replace />} />
                       <Route path="/blog/:slug" element={<BlogPostPage />} />
                       <Route path="/privacy" element={<Privacy />} />
                       <Route path="/offer" element={<Offer />} />
