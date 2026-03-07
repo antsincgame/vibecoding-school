@@ -30,8 +30,8 @@ export default function BlogPostPage() {
 
       if (error) {
         console.error('Error loading blog post:', error);
-        if (retryCount < 2) {
-          setTimeout(() => setRetryCount(r => r + 1), 1000);
+        if (retryCount < 10) {
+          setTimeout(() => setRetryCount(r => r + 1), 2000);
           return;
         }
         setNotFound(true);
@@ -47,8 +47,8 @@ export default function BlogPostPage() {
         setNotFound(true);
       }
     } catch (err) {
-      if (retryCount < 2) {
-        setTimeout(() => setRetryCount(r => r + 1), 1000);
+      if (retryCount < 10) {
+        setTimeout(() => setRetryCount(r => r + 1), 2000);
         return;
       }
       setNotFound(true);
