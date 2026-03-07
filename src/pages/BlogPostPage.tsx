@@ -10,33 +10,47 @@ export default function BlogPostPage() {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     if (slug) {
       loadPost(slug);
     }
-  }, [slug]);
+  }, [slug, retryCount]);
 
   const loadPost = async (postSlug: string) => {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('slug', postSlug)
-      .eq('is_published', true)
-      .maybeSingle();
+    setLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('slug', postSlug)
+        .eq('is_published', true)
+        .maybeSingle();
 
-    if (error) {
-      console.error('Error loading blog post:', error);
-      setNotFound(true);
-      setLoading(false);
-      return;
-    }
+      if (error) {
+        console.error('Error loading blog post:', error);
+        if (retryCount < 2) {
+          setTimeout(() => setRetryCount(r => r + 1), 1000);
+          return;
+        }
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
 
-    if (data) {
-      setPost(data);
-      updateSEO(data);
-      loadRelatedPosts(data.id);
-    } else {
+      if (data) {
+        setPost(data);
+        updateSEO(data);
+        loadRelatedPosts(data.id);
+      } else {
+        setNotFound(true);
+      }
+    } catch (err) {
+      if (retryCount < 2) {
+        setTimeout(() => setRetryCount(r => r + 1), 1000);
+        return;
+      }
       setNotFound(true);
     }
     setLoading(false);
@@ -149,8 +163,8 @@ export default function BlogPostPage() {
     return (
       <div className="blog-post-not-found">
         <div className="not-found-content">
-          <h1>404</h1>
-          <p>Статья не найдена или была удалена</p>
+          <h1>Статья не найдена</h1>
+          <p>Запрашиваемая статья не существует или была удалена</p>
           <Link to="/blog" className="cyber-button">
             Вернуться в блог
           </Link>
